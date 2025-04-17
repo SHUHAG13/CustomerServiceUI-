@@ -14,9 +14,10 @@ export class CustomerService {
  createNewCustomer(customerObj:any){
     return this.http.post(this.baseUrl,customerObj);
   }
-  updateCustomerData(customerObj:any){
-    return this.http.put(this.baseUrl,customerObj);
+  updateCustomerData(customerObj: any) {
+    return this.http.put(`${this.baseUrl}/${customerObj.cstId}`, customerObj);
   }
+  
   deleteCustomerData(customerId:number){
     return this.http.delete(this.baseUrl+"/"+customerId);
   }

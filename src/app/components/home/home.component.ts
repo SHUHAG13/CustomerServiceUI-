@@ -51,24 +51,25 @@ export class HomeComponent {
     this.customerObj=customer;
   }
 
-  onUpdateCustomerData(){
-    this.cstService.updateCustomerData(this.customerObj).subscribe((res:any)=>{
-      if(res){
-        alert("Customer Updated Successfully")
-        this.getAllCustomerData();
-        this.customerObj={
-          "cstId": 0,
-          "cstName": "",
-          "cstAge": 0,
-          "cstEmail": "",
-          "cstAddress": ""
+  onUpdateCustomerData() {
+    this.cstService.updateCustomerData(this.customerObj).subscribe(
+      (res: any) => {
+        if (res) {
+          alert("Customer Updated Successfully");
+          this.getAllCustomerData(); 
+          this.customerObj={
+            "cstId": 0,
+            "cstName": "",
+            "cstAge": 0,
+            "cstEmail": "",
+            "cstAddress": ""
+          } 
+        } else {
+          alert("Customer Update Failed");
         }
-      }
-      else{
-        alert("Customer Update Failed")
-      }
-    })
+      });
   }
+  
 
   onDeleteCustomerData(customerId:number){
     this.cstService.deleteCustomerData(customerId).subscribe((res:any)=>{
